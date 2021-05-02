@@ -2,6 +2,7 @@
 # Example file for working with functions
 #
 
+
 # Define a basic function
 def func1() -> None:
     print('I am a function')

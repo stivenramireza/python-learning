@@ -2,6 +2,7 @@
 # Example file for variables
 #
 
+
 # Declare a variable and initialize it
 f: int = 0
 print(f)
