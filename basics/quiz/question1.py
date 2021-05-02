@@ -3,9 +3,4 @@ def calc(currency: float, *rates) -> None:
         print(currency * i)
 
 
-def main() -> None:
-    calc(10.5, 1, 2, 3)
-
-
-if __name__ == '__main__':
-    main()
+calc(10.5, 1, 2, 3)
