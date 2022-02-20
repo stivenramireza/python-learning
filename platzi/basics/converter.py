@@ -1,30 +1,27 @@
-PESOS_VALUE = 0.00025
-DOLLAR_VALUE = 3921.17
-
-
-def convert_pesos_to_dollars(pesos: float) -> float:
-    return round(pesos / DOLLAR_VALUE, 2)
-
-
-def convert_dollars_to_pesos(dollars: float) -> float:
-    return round(dollars / PESOS_VALUE, 2)
+def convert_pesos_to_dollars(pesos_type: str, dollar_value: float) -> None:
+    pesos = input("How many {} pesos do you have? ".format(pesos_type))
+    dollars = round(float(pesos) / dollar_value, 2)
+    print("You have ${} dollars".format(str(dollars)))
 
 
 def main() -> None:
-    option = int(
-        input(
-            "Select the option: \n [1] Convert colombian pesos to dollars \n [2] Convert dollars to colombian pesos: "
-        )
-    )
+    menu = """
+    Welcome to the currency converter
+
+    1 -> Colombian pesos
+    2 -> Argentinian pesos
+    3 -> Mexican pesos
+
+    Choose an option:
+    """
+    option = int(input(menu))
 
     if option == 1:
-        pesos = input("How many colombian pesos do you have? ")
-        dollars = convert_pesos_to_dollars(float(pesos))
-        print("You have ${} dollars".format(str(dollars)))
+        convert_pesos_to_dollars("colombian", 3921.17)
     elif option == 2:
-        dollars = input("How many dollars do you have? ")
-        pesos = convert_dollars_to_pesos(float(dollars))
-        print("You have ${} colombian pesos".format(str(pesos)))
+        convert_pesos_to_dollars("argentinian", 65)
+    elif option == 3:
+        convert_pesos_to_dollars("mexican", 24)
     else:
         print("Invalid option")
 
