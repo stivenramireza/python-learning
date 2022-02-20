@@ -11,7 +11,11 @@ def convert_dollars_to_pesos(dollars: float) -> float:
 
 
 def main() -> None:
-    option = int(input("Select the option: \n [1] Convert colombian pesos to dollars \n [2] Convert dollars to colombian pesos: "))
+    option = int(
+        input(
+            "Select the option: \n [1] Convert colombian pesos to dollars \n [2] Convert dollars to colombian pesos: "
+        )
+    )
 
     if option == 1:
         pesos = input("How many colombian pesos do you have? ")
