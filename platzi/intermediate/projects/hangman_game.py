@@ -2,6 +2,7 @@ import os
 import random
 
 GAME_DATA = []
+INITIAL_ATTEMPTS = 10
 
 
 def get_game_data() -> None:
@@ -21,27 +22,18 @@ def validate_user_input(letter: str) -> None:
 
 
 def draw_initial_line_word(word: str) -> None:
-    return "_ " * len(word)
+    return ["_" for i in range(len(word))]
 
 
-def save_temp_answer(answer: str) -> None:
-    with open("./files/temp_answer.txt", "w", encoding="utf-8") as f:
-        try:
-            f.write(answer)
-        except Exception:
-            print("Error to save the answer")
-        finally:
-            f.close()
-
-
-def check_letter_in_word(searched_letter: str, word: str) -> None:
-    new_word = ""
-    for letter in word:
-        if letter == searched_letter:
-            new_word += letter
+def check_letter_in_word(
+    searched_letter: str, correct_word: str, game_word: list[str]
+) -> None:
+    for i, v in enumerate(correct_word):
+        if v == searched_letter:
+            game_word[i] = v
         else:
-            new_word += "_ "
-    return new_word
+            if v not in game_word:
+                game_word[i] = "_"
 
 
 def start_game() -> None:
@@ -49,41 +41,47 @@ def start_game() -> None:
 
     get_game_data()
     assert GAME_DATA
-    print("HANGMAN GAME")
+    print(
+        f"""
+    HANGMAN GAME
+    
+    You have {INITIAL_ATTEMPTS} attempts
+    """
+    )
 
     attempts = 0
     won = False
 
     index = random.randint(0, len(GAME_DATA))
     correct_word = GAME_DATA[index]
+    print(correct_word)
     game_word = draw_initial_line_word(correct_word)
 
-    while attempts < 6:
+    while attempts < INITIAL_ATTEMPTS:
+        drawn_word = " ".join(game_word)
         print(
             f"""
         What's the correct word?
         ------------------------
-        {game_word}
+        {drawn_word}
         """
         )
 
         letter = input("Enter a letter: ")
         validate_user_input(letter)
 
-        new_word = check_letter_in_word(letter, correct_word)
+        check_letter_in_word(letter, correct_word, game_word)
 
-        if new_word == correct_word:
+        user_answer = "".join(game_word)
+        if user_answer == correct_word:
             won = True
             break
-
-        if new_word != game_word:
-            game_word = new_word
 
         attempts += 1
         os.system("clear")
 
     os.system("clear")
-    print("You are the winner!") if won else print(
+    print("You won!") if won else print(
         f"Game over! The correct word was '{correct_word}'"
     )
 
