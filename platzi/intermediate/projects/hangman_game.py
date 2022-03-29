@@ -49,15 +49,16 @@ def start_game() -> None:
     """
     )
 
-    attempts = 0
+    attempts = 1
     won = False
 
     index = random.randint(0, len(GAME_DATA))
     correct_word = GAME_DATA[index]
-    print(correct_word)
+
     game_word = draw_initial_line_word(correct_word)
 
     while attempts < INITIAL_ATTEMPTS:
+        print(f"Attemps: {attempts}")
         drawn_word = " ".join(game_word)
         print(
             f"""
