@@ -6,8 +6,13 @@ GAME_DATA = []
 
 def get_game_data() -> None:
     with open("./files/data.txt", "r", encoding="utf-8") as f:
-        global GAME_DATA
-        GAME_DATA = [word.strip("\n") for word in f]
+        try:
+            global GAME_DATA
+            GAME_DATA = [word.strip("\n") for word in f]
+        except Exception:
+            print("Error to read the file")
+        finally:
+            f.close()
 
 
 def validate_user_input(letter: str) -> None:
@@ -17,6 +22,16 @@ def validate_user_input(letter: str) -> None:
 
 def draw_initial_line_word(word: str) -> None:
     return "_ " * len(word)
+
+
+def save_temp_answer(answer: str) -> None:
+    with open("./files/temp_answer.txt", "w", encoding="utf-8") as f:
+        try:
+            f.write(answer)
+        except Exception:
+            print("Error to save the answer")
+        finally:
+            f.close()
 
 
 def check_letter_in_word(searched_letter: str, word: str) -> None:
