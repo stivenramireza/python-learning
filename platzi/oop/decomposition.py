@@ -1,5 +1,4 @@
 class Car:
-
     def __init__(self, model: str, brand: str, color: str) -> None:
         self.model = model
         self.brand = brand
@@ -17,7 +16,6 @@ class Car:
 
 
 class Motor:
-
     def __init__(self, cylinders: int, motor_type: str = "gasoline") -> None:
         self.cylinders = cylinders
         self.motor_type = motor_type
