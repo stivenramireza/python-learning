@@ -1,5 +1,4 @@
 class Rectangle:
-
     def __init__(self, base: float, height: float) -> None:
         self.base = base
         self.height = height
@@ -9,7 +8,6 @@ class Rectangle:
 
 
 class Square(Rectangle):
-
     def __init__(self, side: float) -> None:
         super().__init__(side, side)
 
