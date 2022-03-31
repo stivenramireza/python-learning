@@ -2,7 +2,6 @@ import time
 
 
 class FiboIter:
-
     def __init__(self, max: int = 0) -> None:
         assert max >= 0, "max must be a positive number"
         self.max = max
@@ -16,19 +15,18 @@ class FiboIter:
     def __next__(self) -> int:
         match self.counter:
             case 0:
-                self.counter +=1
+                self.counter += 1
                 return self.n1
             case 1:
-                self.counter +=1
+                self.counter += 1
                 return self.n2
             case _:
                 self.aux = self.n1 + self.n2
                 if self.max in [0, 1] or self.aux > self.max:
                     raise StopIteration
                 self.n1, self.n2 = self.n2, self.aux
-                self.counter +=1
+                self.counter += 1
                 return self.aux
-
 
 
 def main():
