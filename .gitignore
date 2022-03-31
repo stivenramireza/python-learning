@@ -3,3 +3,6 @@
 
 # Virtual environments
 venv
+
+# Cache
+platzi/advanced/.mypy_cache
