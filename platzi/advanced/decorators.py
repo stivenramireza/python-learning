@@ -8,6 +8,7 @@ def execution_time(func: object) -> object:
         final_time = datetime.now()
         time_elapsed = final_time - initial_time
         print(f"It tooked {time_elapsed.total_seconds()} seconds")
+
     return wrapper
 
 
