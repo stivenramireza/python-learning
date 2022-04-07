@@ -6,7 +6,6 @@ def is_years_older(age: int) -> bool:
 
 
 class GlassBoxTest(unittest.TestCase):
-    
     def test_is_of_legal_age(self) -> None:
         age = 20
 

@@ -12,12 +12,12 @@ def main() -> None:
     print("Today's date is", today)
 
     # Print out the date's individual components
-    print('Date components:', today.day, today.month, today.year)
+    print("Date components:", today.day, today.month, today.year)
 
     # Retrieve today's weekday (0 = Monday, 6 = Sunday)
     print("Today's weekday # is:", today.weekday())
-    days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    print('Which is a:', days[today.weekday()])
+    days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    print("Which is a:", days[today.weekday()])
 
     ## DATETIME OBJECTS
     # Get today's date from the datetime class
@@ -25,9 +25,9 @@ def main() -> None:
     print(today)
 
     # Get the current time
-    t = datetime.time(datetime.now())   
+    t = datetime.time(datetime.now())
     print(t)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

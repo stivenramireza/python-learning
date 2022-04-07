@@ -4,7 +4,7 @@ def set_annual():
 
 
 def print_monthly():
-    print("Your monthly payment is "+str(annual / 12)+" USD.")
+    print("Your monthly payment is " + str(annual / 12) + " USD.")
 
 
 set_annual()

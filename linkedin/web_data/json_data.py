@@ -30,22 +30,30 @@ def print_results(data: str) -> None:
     # Print only the events where at least 1 person reported feeling something
     for i in the_json["features"]:
         feltReports = i["properties"]["felt"]
-        if (feltReports != None):
-            if (feltReports > 0):
-                print("%2.1f" % i["properties"]["mag"], i["properties"]
-                      ["place"], " reported " + str(feltReports) + " times")
+        if feltReports != None:
+            if feltReports > 0:
+                print(
+                    "%2.1f" % i["properties"]["mag"],
+                    i["properties"]["place"],
+                    " reported " + str(feltReports) + " times",
+                )
 
 
 def main() -> None:
-    url_data = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson"
+    url_data = (
+        "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson"
+    )
     webUrl = urllib.request.urlopen(url_data)
     print("result code: " + str(webUrl.getcode()))
 
-    if (webUrl.getcode() == 200):
+    if webUrl.getcode() == 200:
         data = webUrl.read().decode("utf-8")
         print_results(data)
     else:
-        print("Received an error from server, cannot retrieve results " + str(webUrl.getcode()))
+        print(
+            "Received an error from server, cannot retrieve results "
+            + str(webUrl.getcode())
+        )
 
 
 if __name__ == "__main__":

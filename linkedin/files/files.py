@@ -1,7 +1,7 @@
 def main() -> None:
     # Open a file for writing and create it if it doesn't exist
     f = open("textfile.txt", "w+")
-    
+
     # Open the file for appending text to the end
     f = open("textfile.txt", "r")
 
@@ -13,7 +13,7 @@ def main() -> None:
     f.close()
 
     # Open the file back up and read the contents
-    if f.mode == 'r':
+    if f.mode == "r":
         # content = f.read()
         fl = f.readlines()
         for x in fl:

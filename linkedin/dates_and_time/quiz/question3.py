@@ -5,6 +5,6 @@ bday = date(today.year, 6, 30)
 diff = (bday - today).days
 
 if diff > 0:
-    print('Birthday in %d days' % diff)
+    print("Birthday in %d days" % diff)
 else:
-    print('Birthday in %d days' % (diff + 365))
+    print("Birthday in %d days" % (diff + 365))

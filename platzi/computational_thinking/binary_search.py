@@ -11,7 +11,7 @@ def main() -> None:
             min_value = answer
         else:
             max_value = answer
-        
+
         answer = (max_value + min_value) / 2
 
     print(f"The square root of {goal} is {answer}")

@@ -7,7 +7,7 @@ def divide_elements(my_list: List[int], divisor: int) -> List[int]:
     except ZeroDivisionError as e:
         print(e)
         return my_list
-    
+
 
 def main() -> None:
     my_list = list(range(10))

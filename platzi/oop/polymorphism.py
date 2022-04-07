@@ -1,5 +1,4 @@
 class Person:
-
     def __init__(self, name: str) -> None:
         self.name = name
 
@@ -8,10 +7,9 @@ class Person:
 
 
 class Cyclist(Person):
-
     def __init__(self, name: str) -> None:
         super().__init__(name)
-    
+
     def advance(self) -> None:
         print("Riding on my bike...")
 

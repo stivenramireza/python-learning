@@ -1,7 +1,8 @@
 def sum_10th(data: list) -> int:
     sum = 0
     for i, d in enumerate(data):
-        if i % 10 == 0 : sum = sum + d
+        if i % 10 == 0:
+            sum = sum + d
     return sum
 
 

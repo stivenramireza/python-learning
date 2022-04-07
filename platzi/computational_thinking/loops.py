@@ -5,11 +5,11 @@ def get_multiple_loops() -> None:
     while external_counter < 5:
         while internal_counter < 6:
             print(external_counter, internal_counter)
-            internal_counter +=1
+            internal_counter += 1
 
             if internal_counter >= 3:
                 break
-            
+
         external_counter += 1
         internal_counter = 0
 
@@ -19,7 +19,7 @@ def get_single_loop() -> None:
 
     while counter < 10:
         print(counter)
-        counter += 1    # counter = counter + 1
+        counter += 1  # counter = counter + 1
 
 
 def main() -> None:

@@ -32,7 +32,7 @@ for day in calendar.day_name:
 # a team meeting on the first Friday of every month.
 # To figure out what days that would be for each month,
 # we can use this script:
-print('Team meetings will be on: ')
+print("Team meetings will be on: ")
 for m in range(1, 13):
     cal = calendar.monthcalendar(2018, m)
     weekone = cal[0]

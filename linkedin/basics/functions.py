@@ -5,15 +5,18 @@
 
 # Define a basic function
 def func1() -> None:
-    print('I am a function')
+    print("I am a function")
+
 
 # Function that takes arguments
 def func2(arg1: int, arg2: int) -> None:
-    print(arg1, ' ', arg2)
+    print(arg1, " ", arg2)
+
 
 # Function that returns a value
 def cube(x: int) -> int:
     return x * x * x
+
 
 # Function with default value for an argument
 def power(num: int, x: int = 1) -> int:
@@ -22,12 +25,14 @@ def power(num: int, x: int = 1) -> int:
         result = result * num
     return result
 
+
 # Function with variable number of arguments
 def multi_add(*args) -> int:
     result: int = 0
     for x in args:
         result = result + x
     return result
+
 
 func1()
 print(func1())
