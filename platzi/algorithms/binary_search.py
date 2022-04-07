@@ -2,10 +2,6 @@ import random
 
 
 def binary_search(searched_list: list[int], start: int, end: int, goal: int) -> bool:
-    searched_goal = goal
-    searched_start = searched_list[start]
-    searched_end = searched_list[end - 1]
-
     if start > end:
         return False
 
