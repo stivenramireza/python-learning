@@ -14,7 +14,7 @@ def bag(bag_lenght: int, weights: list[int], values: list[int], n: int) -> None:
 def main() -> None:
     values = [60, 100, 120]
     weights = [10, 20, 30]
-    bag_lenght = 5
+    bag_lenght = 50
     n = len(values)
 
     result = bag(bag_lenght, weights, values, n)
