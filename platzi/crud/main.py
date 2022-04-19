@@ -1,5 +1,7 @@
 def main() -> None:
-    pass
+    clients = "pablo,ricardo,"
+    clients += "david"
+    print(clients)
 
 
 if __name__ == "__main__":
