@@ -1,6 +1,3 @@
-from venv import create
-
-
 clients = "Pablo,Ricardo,"
 
 
