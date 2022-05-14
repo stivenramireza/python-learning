@@ -22,7 +22,7 @@ def update_client(client_name: str, updated_client_name: str) -> None:
     global clients
 
     if client_name in clients:
-        clients = clients.replace(client_name + ",", updated_client_name)
+        clients = clients.replace(client_name, updated_client_name)
     else:
         print(CLIENT_NO_EXISTS)
 
@@ -31,9 +31,19 @@ def delete_client(client_name: str) -> None:
     global clients
 
     if client_name in clients:
-        clients = clients.replace(client_name + ",", "")
+        clients = clients.replace(client_name, "")
     else:
         print(CLIENT_NO_EXISTS)
+
+
+def search_client(client_name: str) -> bool:
+    clients_list = clients.split(",")
+
+    for client in clients_list:
+        if client != client_name:
+            continue
+        else:
+            return True
 
 
 def _add_comma() -> None:
@@ -42,12 +52,19 @@ def _add_comma() -> None:
 
 
 def _print_welcome() -> None:
-    print("WELCOME TO STIVENRAMIREZA SALES")
-    print("*" * 50)
-    print("What would you like to do today?")
-    print("[C]reate client")
-    print("[U]pdate client")
-    print("[D]elete client")
+    print(
+        """
+    WELCOME TO STIVENRAMIREZA SALES
+
+    What would you like to do today?
+
+    - [C]reate client
+    - [L]ist clients
+    - [U]pdate client
+    - [D]elete client
+    - [S]earch client
+    """
+    )
 
 
 def _get_client_name() -> str:
@@ -65,6 +82,8 @@ def main() -> None:
             client_name = _get_client_name()
             create_client(client_name)
             list_clients()
+        case "L":
+            list_clients()
         case "D":
             client_name = _get_client_name()
             delete_client(client_name)
@@ -74,6 +93,14 @@ def main() -> None:
             updated_client_name = input("What is the updated client name? ")
             update_client(client_name, updated_client_name)
             list_clients()
+        case "S":
+            client_name = _get_client_name()
+            is_client_found = search_client(client_name)
+
+            if is_client_found:
+                print("The client is in the client's list")
+            else:
+                print(f"The client {client_name} is not in the client's list")
         case _:
             print("Invalid command")
 
