@@ -60,21 +60,22 @@ def main() -> None:
     command = input()
     command = command.upper()
 
-    if command == "C":
-        client_name = _get_client_name()
-        create_client(client_name)
-        list_clients()
-    elif command == "D":
-        client_name = _get_client_name()
-        delete_client(client_name)
-        list_clients()
-    elif command == "U":
-        client_name = _get_client_name()
-        updated_client_name = input("What is the updated client name? ")
-        update_client(client_name, updated_client_name)
-        list_clients()
-    else:
-        print("Invalid command")
+    match command:
+        case "C":
+            client_name = _get_client_name()
+            create_client(client_name)
+            list_clients()
+        case "D":
+            client_name = _get_client_name()
+            delete_client(client_name)
+            list_clients()
+        case "U":
+            client_name = _get_client_name()
+            updated_client_name = input("What is the updated client name? ")
+            update_client(client_name, updated_client_name)
+            list_clients()
+        case _:
+            print("Invalid command")
 
 
 if __name__ == "__main__":
