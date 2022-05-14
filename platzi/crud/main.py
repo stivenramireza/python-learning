@@ -1,3 +1,5 @@
+import sys
+
 clients = "Pablo,Ricardo,"
 
 CLIENT_NO_EXISTS = "Client is not in the client's list"
@@ -68,7 +70,19 @@ def _print_welcome() -> None:
 
 
 def _get_client_name() -> str:
-    return input("What is the client name? ")
+    client_name = None
+
+    while not client_name:
+        client_name = input("What is the client name? ")
+
+        if client_name == "exit":
+            client_name = None
+            break
+
+    if not client_name:
+        sys.exit()
+
+    return client_name
 
 
 def main() -> None:
