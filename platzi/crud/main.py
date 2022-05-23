@@ -1,46 +1,73 @@
 import sys
+from typing import Dict
 
-clients = ['pablo', 'ricardo']
+clients = [
+    {
+        'name': 'Pablo',
+        'company': 'Google',
+        'email': 'pablo@google.com',
+        'position': 'Software Engineer',
+    },
+    {
+        'name': 'Ricardo',
+        'company': 'Facebook',
+        'email': 'ricardo@facebook.com',
+        'position': 'Data Engineer',
+    },
+]
 
 CLIENT_NO_EXISTS = 'Client is not in the client\'s list'
 
 
-def create_client(client_name: str) -> None:
-    global clients
-
-    if client_name not in clients:
-        clients.append(client_name)
+def create_client(client: Dict[str, any]) -> None:
+    if client not in clients:
+        clients.append(client)
     else:
         print('Client already is in the client\'s name')
 
 
 def list_clients() -> None:
     for idx, client in enumerate(clients):
-        print('{}: {}'.format(idx, client))
+        print(
+            '{uid} | {name} | {company} | {email} | {position}'.format(
+                uid=idx,
+                name=client.get('name'),
+                company=client.get('company'),
+                email=client.get('email'),
+                position=client.get('position'),
+            )
+        )
 
 
 def update_client(client_name: str, updated_client_name: str) -> None:
     global clients
 
-    if client_name in clients:
-        index = clients.index(client_name)
-        clients[index] = updated_client_name
-    else:
+    exists_client = False
+    for client in clients:
+        if client.get('name') == client_name:
+            exists_client = True
+            client.update({'name': updated_client_name})
+
+    if not exists_client:
         print(CLIENT_NO_EXISTS)
 
 
 def delete_client(client_name: str) -> None:
     global clients
 
-    if client_name in clients:
-        clients.remove(client_name)
-    else:
+    exists_client = False
+    for client in clients:
+        if client.get('name') == client_name:
+            exists_client = True
+            clients.remove(client)
+
+    if not exists_client:
         print(CLIENT_NO_EXISTS)
 
 
 def search_client(client_name: str) -> bool:
     for client in clients:
-        if client != client_name:
+        if client.get('name') != client_name:
             continue
         else:
             return True
@@ -60,6 +87,15 @@ def _print_welcome() -> None:
     - [S]earch client
     '''
     )
+
+
+def _get_client_field(field_name: str) -> None:
+    field = None
+
+    while not field:
+        field = input('What is the client {}? '.format(field_name))
+
+    return field
 
 
 def _get_client_name() -> str:
@@ -86,8 +122,13 @@ def main() -> None:
 
     match command:
         case 'C':
-            client_name = _get_client_name()
-            create_client(client_name)
+            client = {
+                'name': _get_client_field('name'),
+                'company': _get_client_field('company'),
+                'email': _get_client_field('email'),
+                'position': _get_client_field('position'),
+            }
+            create_client(client)
             list_clients()
         case 'L':
             list_clients()
