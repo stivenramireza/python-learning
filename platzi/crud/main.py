@@ -44,7 +44,7 @@ def update_client(client_name: str, updated_client_name: str) -> None:
 
     exists_client = False
     for client in clients:
-        if client.get('name') == client_name:
+        if client_name in client.values():
             exists_client = True
             client.update({'name': updated_client_name})
 
@@ -57,7 +57,7 @@ def delete_client(client_name: str) -> None:
 
     exists_client = False
     for client in clients:
-        if client.get('name') == client_name:
+        if client_name in client.values():
             exists_client = True
             clients.remove(client)
 
