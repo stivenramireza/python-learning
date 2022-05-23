@@ -1,5 +1,5 @@
 def main() -> None:
-    goal = int(input("Enter an integer: "))
+    goal = int(input('Enter an integer: '))
     epsilon = 0.0001
     step = epsilon**2
     answer = 0.0
@@ -9,10 +9,10 @@ def main() -> None:
         answer += step
 
     if abs(answer**2 - goal) >= epsilon:
-        print(f"Square root not found of {goal}")
+        print(f'Square root not found of {goal}')
     else:
-        print(f"The square root of {goal} is {answer}")
+        print(f'The square root of {goal} is {answer}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

@@ -25,16 +25,16 @@ def main() -> None:
 
     # Loop 11 table
     for i in range(0, 10):
-        print(f"11*{i} = {11 * i}")
+        print(f'11*{i} = {11 * i}')
 
     # Loop a name
-    name = input("Enter your name: ")
+    name = input('Enter your name: ')
     loop_a_name(name)
 
     # Loop a phrase with upper()
-    phrase = input("Enter a phrase: ")
+    phrase = input('Enter a phrase: ')
     loop_a_phrase(phrase)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

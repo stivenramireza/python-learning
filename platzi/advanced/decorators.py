@@ -7,7 +7,7 @@ def execution_time(func: object) -> object:
         func(*args, **kwargs)
         final_time = datetime.now()
         time_elapsed = final_time - initial_time
-        print(f"It tooked {time_elapsed.total_seconds()} seconds")
+        print(f'It tooked {time_elapsed.total_seconds()} seconds')
 
     return wrapper
 
@@ -24,15 +24,15 @@ def sum(a: int, b: int) -> int:
 
 
 @execution_time
-def greeting(name: str = "Cesar"):
-    print(f"Hello {name}")
+def greeting(name: str = 'Cesar'):
+    print(f'Hello {name}')
 
 
 def main() -> None:
     random_func()
     sum(5, 5)
-    greeting("Stiven")
+    greeting('Stiven')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

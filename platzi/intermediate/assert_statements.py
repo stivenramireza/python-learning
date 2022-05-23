@@ -7,11 +7,11 @@ def divisors(num: int) -> list[int]:
 
 
 def main() -> None:
-    num = input("Enter a number: ")
-    assert num.isnumeric(), "You must enter a positive number"
+    num = input('Enter a number: ')
+    assert num.isnumeric(), 'You must enter a positive number'
     print(divisors(int(num)))
-    print("My program finished")
+    print('My program finished')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

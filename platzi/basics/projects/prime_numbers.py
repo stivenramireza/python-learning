@@ -10,10 +10,14 @@ def is_prime(number: int) -> bool:
 
 
 def main() -> None:
-    number = int(input("Enter a number: "))
+    number = int(input('Enter a number: '))
+
     is_prime_number = is_prime(number)
-    print("It's prime") if is_prime_number else print("It isn't prime")
+    if is_prime_number:
+        print('It\'s prime')
+    else:
+        print('It isn\'t prime')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

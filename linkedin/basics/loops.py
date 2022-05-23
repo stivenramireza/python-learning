@@ -16,7 +16,7 @@ def main() -> None:
         print(x)
 
     # Use a loop over a collection
-    days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     for d in days:
         print(d)
 
@@ -28,10 +28,10 @@ def main() -> None:
         print(x)
 
     # Using the enumerate() function to get index
-    days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     for i, d in enumerate(days):
         print(i, d)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

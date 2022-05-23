@@ -7,14 +7,16 @@ class Miles:
 
     @property
     def distance(self) -> float:
-        print("Getter method")
+        print('Getter method')
         return self._distance
 
     @distance.setter
     def distance(self, distance: float) -> None:
         if distance < 0:
-            raise ValueError("It is not possible to convert distances less than 0")
-        print("Setter method")
+            raise ValueError(
+                'It is not possible to convert distances less than 0'
+            )
+        print('Setter method')
         self._distance = distance
 
 
@@ -24,5 +26,5 @@ def main() -> None:
     print(airplane.distance)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

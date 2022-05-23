@@ -1,7 +1,9 @@
 import random
 
 
-def binary_search(searched_list: list[int], start: int, end: int, goal: int) -> bool:
+def binary_search(
+    searched_list: list[int], start: int, end: int, goal: int
+) -> bool:
     if start > end:
         return False
 
@@ -16,16 +18,20 @@ def binary_search(searched_list: list[int], start: int, end: int, goal: int) -> 
 
 
 def main() -> None:
-    n = int(input("What's the list lenght? "))
-    goal = int(input("What number do you want to find? "))
+    n = int(input('What\'s the list lenght? '))
+    goal = int(input('What number do you want to find? '))
 
     searched_list = sorted([random.randint(0, 100) for i in range(n)])
 
     is_found = binary_search(searched_list, 0, len(searched_list), goal)
 
     print(searched_list)
-    print(f"The element {goal} {'is' if is_found else 'is not'} in the list")
+    print(
+        'The element {} {} in the list'.format(
+            goal, 'is' if is_found else 'is not'
+        )
+    )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

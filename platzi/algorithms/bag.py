@@ -6,7 +6,8 @@ def bag(bag_lenght: int, weights: list[int], values: list[int], n: int) -> None:
         return bag(bag_lenght, weights, values, n - 1)
 
     return max(
-        values[n - 1] + bag(bag_lenght - weights[n - 1], weights, values, n - 1),
+        values[n - 1]
+        + bag(bag_lenght - weights[n - 1], weights, values, n - 1),
         bag(bag_lenght, weights, values, n - 1),
     )
 
@@ -21,5 +22,5 @@ def main() -> None:
     print(result)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

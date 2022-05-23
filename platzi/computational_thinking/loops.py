@@ -30,5 +30,5 @@ def main() -> None:
     get_multiple_loops()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

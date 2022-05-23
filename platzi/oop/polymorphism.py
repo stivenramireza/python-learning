@@ -3,7 +3,7 @@ class Person:
         self.name = name
 
     def advance(self) -> None:
-        print("Walking...")
+        print('Walking...')
 
 
 class Cyclist(Person):
@@ -11,16 +11,16 @@ class Cyclist(Person):
         super().__init__(name)
 
     def advance(self) -> None:
-        print("Riding on my bike...")
+        print('Riding on my bike...')
 
 
 def main() -> None:
-    person = Person("Stiven")
+    person = Person('Stiven')
     person.advance()
 
-    cyclist = Cyclist("Daniel")
+    cyclist = Cyclist('Daniel')
     cyclist.advance()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

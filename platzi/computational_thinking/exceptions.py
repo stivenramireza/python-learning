@@ -16,5 +16,5 @@ def main() -> None:
     print(divide_elements(my_list, divisor))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

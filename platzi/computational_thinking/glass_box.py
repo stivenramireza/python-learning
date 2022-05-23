@@ -21,5 +21,5 @@ class GlassBoxTest(unittest.TestCase):
         self.assertEqual(result, False)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main(verbosity=2)

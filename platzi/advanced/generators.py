@@ -2,7 +2,7 @@ import time
 
 
 def fibo_gen(max: int = 0) -> int:
-    assert max >= 0, "max must be a positive number"
+    assert max >= 0, 'max must be a positive number'
     n1, n2, counter = 0, 1, 0
 
     while True:
@@ -27,5 +27,5 @@ def main() -> None:
         time.sleep(0.05)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

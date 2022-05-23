@@ -5,12 +5,12 @@
 
 # Define a basic function
 def func1() -> None:
-    print("I am a function")
+    print('I am a function')
 
 
 # Function that takes arguments
 def func2(arg1: int, arg2: int) -> None:
-    print(arg1, " ", arg2)
+    print(arg1, ' ', arg2)
 
 
 # Function that returns a value

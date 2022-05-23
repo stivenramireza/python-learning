@@ -12,9 +12,9 @@ def main() -> None:
             break
 
     # Loop until letter is o
-    text = input("Enter a text: ")
+    text = input('Enter a text: ')
     for letter in text:
-        if letter == "o":
+        if letter == 'o':
             break
         print(letter)
 
@@ -36,5 +36,5 @@ def main() -> None:
             break
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

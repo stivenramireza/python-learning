@@ -3,7 +3,7 @@ import time
 
 class FiboIter:
     def __init__(self, max: int = 0) -> None:
-        assert max >= 0, "max must be a positive number"
+        assert max >= 0, 'max must be a positive number'
         self.max = max
 
     def __iter__(self) -> object:
@@ -36,5 +36,5 @@ def main():
         time.sleep(0.05)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
