@@ -1,10 +1,20 @@
 import random
 
 
-def binary_search_without_recursion(
-    data: list[int], target: int, low: int, high: int
-) -> bool:
-    pass
+def binary_search_without_recursion(data: list[int], target: int) -> bool:
+    low = 0
+    high = len(data) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        if target == data[mid]:
+            return True
+        elif target < data[mid]:
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return False
 
 
 def binary_search_with_recursion(
@@ -30,7 +40,12 @@ def main() -> None:
 
     target = int(input('What number would you like to find? '))
 
+    # # With recursion
     found = binary_search_with_recursion(data, target, 0, len(data) - 1)
+    print(found)
+
+    # Without recursion
+    found = binary_search_without_recursion(data, target)
     print(found)
 
 
