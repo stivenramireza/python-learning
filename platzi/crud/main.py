@@ -1,22 +1,31 @@
+import os
 import sys
+import csv
 from typing import Dict
 
-clients = [
-    {
-        'name': 'Pablo',
-        'company': 'Google',
-        'email': 'pablo@google.com',
-        'position': 'Software Engineer',
-    },
-    {
-        'name': 'Ricardo',
-        'company': 'Facebook',
-        'email': 'ricardo@facebook.com',
-        'position': 'Data Engineer',
-    },
-]
+clients = list()
 
+CLIENT_TABLE = 'clients.csv'
+CLIENT_SCHEMA = ['name', 'company', 'email', 'position']
 CLIENT_NO_EXISTS = 'Client is not in the client\'s list'
+
+
+def _initialize_clients_from_storage() -> None:
+    with open(CLIENT_TABLE, mode='r') as f:
+        reader = csv.DictReader(f, fieldnames=CLIENT_SCHEMA)
+
+        for row in reader:
+            clients.append(row)
+
+
+def _save_clients_to_storage() -> None:
+    tmp_table_name = '{}.tmp'.format(CLIENT_TABLE)
+    with open(tmp_table_name, mode='w') as f:
+        writer = csv.DictWriter(f, fieldnames=CLIENT_SCHEMA)
+        writer.writerows(clients)
+
+        os.remove(CLIENT_TABLE)
+        os.rename(tmp_table_name, CLIENT_TABLE)
 
 
 def create_client(client: Dict[str, any]) -> None:
@@ -115,6 +124,7 @@ def _get_client_name() -> str:
 
 
 def main() -> None:
+    _initialize_clients_from_storage()
     _print_welcome()
 
     command = input()
@@ -129,18 +139,15 @@ def main() -> None:
                 'position': _get_client_field('position'),
             }
             create_client(client)
-            list_clients()
         case 'L':
             list_clients()
         case 'D':
             client_name = _get_client_name()
             delete_client(client_name)
-            list_clients()
         case 'U':
             client_name = _get_client_name()
             updated_client_name = input('What is the updated client name? ')
             update_client(client_name, updated_client_name)
-            list_clients()
         case 'S':
             client_name = _get_client_name()
             is_client_found = search_client(client_name)
@@ -155,6 +162,8 @@ def main() -> None:
                 )
         case _:
             print('Invalid command')
+
+    _save_clients_to_storage()
 
 
 if __name__ == '__main__':
